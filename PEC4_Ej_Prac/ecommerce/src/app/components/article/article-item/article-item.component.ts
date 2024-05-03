@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Article } from 'src/app/models/article';
+import { ArticleQuantityChange } from 'src/app/models/article-quantity-change';
 
 @Component({
   selector: 'app-article-item',
@@ -7,25 +8,14 @@ import { Article } from 'src/app/models/article';
   styleUrls: ['./article-item.component.scss'],
 })
 export class ArticleItemComponent {
-  article: Article;
+  @Input() article!: Article;
+  @Output() quantityChange = new EventEmitter<ArticleQuantityChange>();
 
-  constructor() {
-    this.article = {
-      name: 'Demo articulo',
-      imageUrl: 'nothing.jpg',
-      price: 20.0,
-      isOnSale: false,
-      quantityInCart: 0,
-    };
+  emitirIncrementoCantidad() {
+    this.quantityChange.emit({ article: this.article, changeInQuantity: 1 });
   }
 
-  incrementarCantidad() {
-    this.article.quantityInCart++;
-  }
-
-  decrementarCantidad() {
-    if (this.article.quantityInCart > 0) {
-      this.article.quantityInCart--;
-    }
+  emitirDecrementarCantidad() {
+    this.quantityChange.emit({ article: this.article, changeInQuantity: -1 });
   }
 }
