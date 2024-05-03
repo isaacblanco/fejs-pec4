@@ -11,5 +11,6 @@ import { ArticleListComponent } from './components/article/article-list/article-
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [ArticleItemComponent, ArticleListComponent],
 })
 export class AppModule {}

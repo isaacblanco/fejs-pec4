@@ -4,8 +4,10 @@
   background-color: #ffffff;
   border: 1px solid #ccc;
   display: flex;
+  flex-grow: 4;
   flex-direction: column;
   margin-bottom: 10px;
+  max-width: 200px;
   padding: 20px;
 }
 

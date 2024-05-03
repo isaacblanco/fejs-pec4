@@ -10,10 +10,10 @@
   <span *ngIf="article.isOnSale">¡En oferta!</span>
   <p *ngIf="article.isOnSale">En la cesta: {{ article.quantityInCart }}</p>
   <div class="botones" *ngIf="article.isOnSale">
-    <button (click)="incrementarCantidad()">+</button>
+    <button (click)="emitirIncrementoCantidad()">+</button>
     <button
       [disabled]="article.quantityInCart === 0"
-      (click)="decrementarCantidad()"
+      (click)="emitirDecrementarCantidad()"
     >
       -
     </button>
