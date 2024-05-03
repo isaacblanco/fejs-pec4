@@ -1,0 +1,19 @@
+<div class="article-item" [ngClass]="{ 'en-venta': article.isOnSale }">
+  <img
+    src="./../../../../assets/img/{{ article.imageUrl }}"
+    alt="{{ article.name }}"
+  />
+  <h2>{{ article.name }}</h2>
+  <p>{{ article.price | currency : "EUR" : true }}</p>
+  <span *ngIf="article.isOnSale">¡En oferta!</span>
+  <p>En la cesta: {{ article.quantityInCart }}</p>
+  <div class="botones">
+    <button (click)="incrementarCantidad()">+</button>
+    <button
+      [disabled]="article.quantityInCart === 0"
+      (click)="decrementarCantidad()"
+    >
+      -
+    </button>
+  </div>
+</div>
