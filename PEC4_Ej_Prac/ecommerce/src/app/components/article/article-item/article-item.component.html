@@ -4,10 +4,12 @@
     alt="{{ article.name }}"
   />
   <h2>{{ article.name }}</h2>
-  <p>{{ article.price | currency : "EUR" : true }}</p>
+  <p [ngClass]="{ 'precio-gris': !article.isOnSale }">
+    {{ article.price | currency : "EUR" : true }}
+  </p>
   <span *ngIf="article.isOnSale">¡En oferta!</span>
-  <p>En la cesta: {{ article.quantityInCart }}</p>
-  <div class="botones">
+  <p *ngIf="article.isOnSale">En la cesta: {{ article.quantityInCart }}</p>
+  <div class="botones" *ngIf="article.isOnSale">
     <button (click)="incrementarCantidad()">+</button>
     <button
       [disabled]="article.quantityInCart === 0"
@@ -16,4 +18,5 @@
       -
     </button>
   </div>
+  <p *ngIf="!article.isOnSale">Artículo no disponible</p>
 </div>

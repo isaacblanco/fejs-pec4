@@ -1,5 +1,7 @@
+/* Ejercicio 1 */
 .article-item {
   align-items: center;
+  background-color: #ffffff;
   border: 1px solid #ccc;
   display: flex;
   flex-direction: column;
@@ -33,6 +35,7 @@
   border: 2px solid #ff3333;
 }
 
+/* Ejercicio 3 */
 .botones {
   flex-direction: row;
 }
@@ -56,4 +59,9 @@ button:hover {
 button:disabled {
   background-color: #999999;
   color: #212121;
+}
+
+/* Ejercicio 5 */
+.precio-gris {
+  color: #999999;
 }
